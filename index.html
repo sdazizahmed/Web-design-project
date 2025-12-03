@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Photography | Home</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Content data must load before script.js so that the data object exists -->
+    <script src="data/content.js"></script>
+    <!-- Main script that injects navigation, footer and page content -->
+    <script src="script.js" defer></script>
+  </head>
+  <!-- The unique ID on the body tells script.js which page is being loaded -->
+  <body id="home">
+    <!-- The navigation bar will be injected here -->
+    <nav id="nav-container"></nav>
+    <!-- The main page content will be injected here based on the body ID -->
+    <main id="page-content"></main>
+    <!-- The footer will be injected here -->
+    <footer id="footer-container"></footer>
+  </body>
+</html>
