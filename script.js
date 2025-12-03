@@ -14,20 +14,26 @@ document.addEventListener("DOMContentLoaded", () => {
  * Builds and inserts the navigation markup into the page.
  */
 function injectNav() {
-  const navContainer = document.getElementById("nav-container");
-  if (!navContainer) return;
-  navContainer.innerHTML = `
-    <div class="navbar">
-      <div class="logo"><a href="index.html">Learn Photography</a></div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="history.html">History</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="styles.html">Styles</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  `;
+  document.getElementById("nav-container").innerHTML = `
+  <header class="navbar">
+    <div class="logo"><a href="index.html">Learn Photography</a></div>
+    <!-- ADD THESE TWO LINES ↓↓↓ -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="menu-button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <!-- END NEW LINES -->
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="styles.html">Styles</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </header>
+`;
 }
 
 /**
