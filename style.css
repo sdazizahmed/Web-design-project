@@ -266,36 +266,68 @@ a {
   border-top: 1px solid var(--card-bg);
 }
 
-/* Responsive typography */
-/* Desktop: keep nav on same row, pushed right */
-@media (min-width:901px){
-  .header-content{flex-wrap:nowrap;}
-  .site-nav{margin-left:auto;}
+/* Hide the checkbox itself */
+.nav-toggle {
+  display: none;
 }
 
-/* Tablet & down: compact header + collapsible nav */
-@media (max-width:900px){
-  .header-content{
-    display:grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas:
-      "brand toggle"
-      "nav nav";
-    align-items:center;
-    gap:10px;
-    padding-block:8px;
-    min-height:64px;
+/* Hamburger icon (hidden on large screens) */
+.nav-toggle-label {
+  display: none;               /* will show on small screens */
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 0.25rem 0.5rem;
+}
+
+.nav-toggle-label span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--text-color);
+  border-radius: 999px;
+}
+
+/* Desktop: normal menu */
+@media (min-width: 769px) {
+  .navbar {
+    position: relative;
   }
-  .logo-section{grid-area:brand;}
-  .menu-button{grid-area:toggle;display:inline-flex;align-items:center;justify-content:center;}
-  .site-nav{grid-area:nav;width:100%;max-height:0;overflow:hidden;transition:max-height .25s ease;background:var(--brand);border-radius:var(--radius-md);}
-  .site-nav ul{flex-direction:column;gap:10px;padding:10px 8px;}
-  .nav-toggle:checked ~ .site-nav{max-height:60vh;}
 }
 
-/* Phone tweaks */
-@media (max-width:600px){
-  .header-content{min-height:56px;}
-  .logo-section img{width:44px;height:44px;}
-  .site-title{font-size:clamp(1rem,4vw,1.3rem);}
+/* Mobile: show burger, collapse menu */
+@media (max-width: 768px) {
+  .navbar {
+    position: relative;
+  }
+
+  .nav-toggle-label {
+    display: flex; /* show hamburger */
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background-color: var(--secondary-bg);
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease-out;
+    border-top: 1px solid var(--card-bg);
+  }
+
+  .nav-links li {
+    padding: 0.5rem 0;
+  }
+
+  /* When checkbox is checked, expand menu */
+  .nav-toggle:checked ~ .nav-links {
+    max-height: 300px; /* big enough for all links */
+  }
 }
